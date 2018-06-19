@@ -82,21 +82,6 @@ function getCategories() {
   return catArray;
 }
 
-//create an array of the emoji and the description
-// function trophyArray(obj) {
-//   let trophy = {
-//     emoji: obj.emoji,
-//     description: obj.description
-//   }
-//   let trophyArray = []
-
-//   categories.forEach((category) => {
-//     categories.trophies.forEach((trophy) =>
-//       trophy = 
-//         )
-//     })
-// }
-
 class App extends Component {
   render() {
     return (
