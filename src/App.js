@@ -61,7 +61,7 @@ class TrophyTable extends React.Component {
   }
 }
 
-//return an object with a name key, and a trophy: array that has emoji and instructions
+//return an object with a name key, and a trophy: array
 function getCategories() {
   var catArray = []
   var cat = {
