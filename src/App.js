@@ -2,63 +2,55 @@ import React, { Component } from 'react';
 import './App.css';
 import trophydexJson from './trophydex.json';
 
-class TrophyCell extends React.Component {
-  render () {
-    let emoji = this.props.emoji
-    return (
-      <td>
-        <a>{emoji}</a>
-      </td> 
-    );  
-  }
+function TrophyCell (props) {
+  let emoji = props.emoji
+  return (
+    <td>
+      <a>{emoji}</a>
+    </td> 
+  );  
 }
 
-class TrophyRow extends React.Component {
-  render() {
-    let trophies = this.props.trophies;
-    console.log(trophies);
-    let name = this.props.category;
-    const cells = [];
+function TrophyRow (props) {
+  let trophies = props.trophies;
+  let name = props.category;
+  const cells = [];
 
-    trophies.forEach((trophy) => {
-      cells.push(
-        <TrophyCell
-          emoji={trophy.emoji}
-        />
-      );
-    });
-
-    return(
-      <thead>
-        <tr>
-          <th>{name}</th>
-          {cells}
-        </tr>
-      </thead>
+  trophies.forEach((trophy) => {
+    cells.push(
+      <TrophyCell
+        emoji={trophy.emoji}
+      />
     );
-  }
+  });
+
+  return(
+    <thead>
+      <tr>
+        <th>{name}</th>
+        {cells}
+      </tr>
+    </thead>
+  );
 }
 
-class TrophyTable extends React.Component {
-  render () {
-    let categories = this.props.getCategories();
-    console.log(categories)
+function TrophyTable (props) {
+  let categories = props.getCategories();
 
-    const rows = [];
-    categories.forEach((category) => {
-      rows.push(
-        <TrophyRow
-          trophies={category.trophies}
-          category={category.name}
-        />
-      );
-    });
-    return(
-      <table>
-        {rows}
-      </table>
+  const rows = [];
+  categories.forEach((category) => {
+    rows.push(
+      <TrophyRow
+        trophies={category.trophies}
+        category={category.name}
+      />
     );
-  }
+  });
+  return(
+    <table>
+      {rows}
+    </table>
+  );
 }
 
 //return an object with a name key, and a trophy: array
